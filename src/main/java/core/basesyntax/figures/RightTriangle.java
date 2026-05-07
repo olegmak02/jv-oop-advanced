@@ -16,8 +16,8 @@ public class RightTriangle extends Figure {
                 String.format(BASIC_PRINT_INFO, "right triangle", getArea(), color)
         );
 
-        info.append(", firstBase: ").append(String.format("%.1f", firstLeg)).append(" units");
-        info.append(", secondBase: ").append(String.format("%.1f", secondLeg)).append(" units");
+        info.append(", firstLeg: ").append(String.format("%.1f", firstLeg)).append(" units");
+        info.append(", secondLeg: ").append(String.format("%.1f", secondLeg)).append(" units");
         System.out.println(info.toString());
     }
 

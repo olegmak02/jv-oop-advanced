@@ -2,6 +2,7 @@ package core.basesyntax.suppliers;
 
 import core.basesyntax.figures.Circle;
 import core.basesyntax.figures.Figure;
+import core.basesyntax.figures.FigureType;
 import core.basesyntax.figures.IsoscelesTrapezoid;
 import core.basesyntax.figures.Rectangle;
 import core.basesyntax.figures.RightTriangle;
@@ -9,6 +10,8 @@ import core.basesyntax.figures.Square;
 import java.util.Random;
 
 public class FigureSupplier {
+    private static final double MAX_SIZE = 100;
+    private static final Random RANDOM = new Random();
     private final ColorSupplier colorSupplier;
 
     public FigureSupplier(ColorSupplier colorSupplier) {
@@ -16,23 +19,29 @@ public class FigureSupplier {
     }
 
     public Figure getRandomFigure() {
-        Random random = new Random();
-        int i = random.nextInt(5);
+        int i = RANDOM.nextInt(FigureType.values().length);
         String color = colorSupplier.getRandomColor();
 
-        return switch (i) {
-            case 0 -> new Circle(random.nextDouble(100), color);
-            case 1 -> new Square(random.nextDouble(100), color);
-            case 2 -> new IsoscelesTrapezoid(
-                    random.nextDouble(100),
-                    random.nextDouble(100),
-                    random.nextDouble(100),
+        return switch (FigureType.values()[i]) {
+            case CIRCLE -> new Circle(RANDOM.nextDouble(MAX_SIZE), color);
+            case SQUARE -> new Square(RANDOM.nextDouble(MAX_SIZE), color);
+            case ISOSCELES_TRAPEZOID -> new IsoscelesTrapezoid(
+                    RANDOM.nextDouble(MAX_SIZE),
+                    RANDOM.nextDouble(MAX_SIZE),
+                    RANDOM.nextDouble(MAX_SIZE),
                     color
             );
-            case 3 -> new RightTriangle(random.nextDouble(100), random.nextDouble(100), color);
-            default -> new Rectangle(random.nextDouble(100), random.nextDouble(100), color);
+            case RIGHT_TRIANGLE -> new RightTriangle(
+                    RANDOM.nextDouble(MAX_SIZE),
+                    RANDOM.nextDouble(MAX_SIZE),
+                    color
+            );
+            case RECTANGLE -> new Rectangle(
+                    RANDOM.nextDouble(MAX_SIZE),
+                    RANDOM.nextDouble(MAX_SIZE),
+                    color
+            );
         };
-
     }
 
     public Figure getDefaultFigure() {
