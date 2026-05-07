@@ -3,8 +3,10 @@ package core.basesyntax.suppliers;
 import java.util.Random;
 
 public class ColorSupplier {
+    public static final Random RANDOM = new Random();
+
     public String getRandomColor() {
-        return switch (new Random().nextInt(10)) {
+        return switch (RANDOM.nextInt(10)) {
             case 0 -> "red";
             case 1 -> "green";
             case 2 -> "blue";

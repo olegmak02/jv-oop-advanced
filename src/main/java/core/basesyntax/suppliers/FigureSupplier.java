@@ -23,24 +23,34 @@ public class FigureSupplier {
         String color = colorSupplier.getRandomColor();
 
         return switch (FigureType.values()[i]) {
-            case CIRCLE -> new Circle(RANDOM.nextDouble(MAX_SIZE), color);
-            case SQUARE -> new Square(RANDOM.nextDouble(MAX_SIZE), color);
-            case ISOSCELES_TRAPEZOID -> new IsoscelesTrapezoid(
-                    RANDOM.nextDouble(MAX_SIZE),
-                    RANDOM.nextDouble(MAX_SIZE),
-                    RANDOM.nextDouble(MAX_SIZE),
-                    color
-            );
-            case RIGHT_TRIANGLE -> new RightTriangle(
-                    RANDOM.nextDouble(MAX_SIZE),
-                    RANDOM.nextDouble(MAX_SIZE),
-                    color
-            );
-            case RECTANGLE -> new Rectangle(
-                    RANDOM.nextDouble(MAX_SIZE),
-                    RANDOM.nextDouble(MAX_SIZE),
-                    color
-            );
+            case CIRCLE -> {
+                double radius = RANDOM.nextDouble(MAX_SIZE);
+                yield new Circle(radius, color);
+            }
+
+            case SQUARE -> {
+                double side = RANDOM.nextDouble(MAX_SIZE);
+                yield new Square(side, color);
+            }
+
+            case ISOSCELES_TRAPEZOID -> {
+                double firstBase = RANDOM.nextDouble(MAX_SIZE);
+                double secondBase = RANDOM.nextDouble(MAX_SIZE);
+                double leg = RANDOM.nextDouble(MAX_SIZE);
+                yield new IsoscelesTrapezoid(firstBase, secondBase, leg, color);
+            }
+
+            case RIGHT_TRIANGLE -> {
+                double firstLeg = RANDOM.nextDouble(MAX_SIZE);
+                double secondLeg = RANDOM.nextDouble(MAX_SIZE);
+                yield new RightTriangle(firstLeg, secondLeg, color);
+            }
+
+            case RECTANGLE -> {
+                double height = RANDOM.nextDouble(MAX_SIZE);
+                double width = RANDOM.nextDouble(MAX_SIZE);
+                yield new Rectangle(height, width, color);
+            }
         };
     }
 
