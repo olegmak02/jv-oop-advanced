@@ -12,7 +12,10 @@ public class Rectangle extends Figure {
 
     @Override
     public void draw() {
-        StringBuilder info = new StringBuilder(String.format(BASIC_PRINT_INFO, "rectangle", getArea(), color));
+        StringBuilder info = new StringBuilder(
+                String.format(BASIC_PRINT_INFO, "rectangle", getArea(), color)
+        );
+
         info.append(", height: ").append(String.format("%.1f", height)).append(" units");
         info.append(", width: ").append(String.format("%.1f", width)).append(" units");
         System.out.println(info.toString());

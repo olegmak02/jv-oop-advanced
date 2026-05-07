@@ -14,7 +14,10 @@ public class IsoscelesTrapezoid extends Figure {
 
     @Override
     public void draw() {
-        StringBuilder info = new StringBuilder(String.format(BASIC_PRINT_INFO, "isosceles trapezoid", getArea(), color));
+        StringBuilder info = new StringBuilder(
+                String.format(BASIC_PRINT_INFO, "isosceles trapezoid", getArea(), color)
+        );
+
         info.append(", firstBase: ").append(String.format("%.1f", firstBase)).append(" units");
         info.append(", secondBase: ").append(String.format("%.1f", secondBase)).append(" units");
         info.append(", leg: ").append(String.format("%.1f", leg)).append(" units");
@@ -23,7 +26,7 @@ public class IsoscelesTrapezoid extends Figure {
 
     @Override
     public double getArea() {
-        double h = Math.pow(Math.pow(leg, 2) - Math.pow(secondBase - firstBase, 2) / 4 , 0.5);
+        double h = Math.pow(Math.pow(leg, 2) - Math.pow(secondBase - firstBase, 2) / 4, 0.5);
         return (firstBase + secondBase) / 2 * h;
     }
 }

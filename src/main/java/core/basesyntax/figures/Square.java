@@ -10,7 +10,10 @@ public class Square extends Figure {
 
     @Override
     public void draw() {
-        StringBuilder info = new StringBuilder(String.format(BASIC_PRINT_INFO, "square", getArea(), color));
+        StringBuilder info = new StringBuilder(
+                String.format(BASIC_PRINT_INFO, "square", getArea(), color)
+        );
+
         info.append(", side: ").append(String.format("%.1f", side)).append(" units");
         System.out.println(info.toString());
     }

@@ -1,15 +1,12 @@
 package core.basesyntax.figures;
 
-public abstract class Figure {
+public abstract class Figure implements Drawable {
+    protected static final String BASIC_PRINT_INFO = "Figure: %s, area: %.1f sq. units, color: %s";
     protected String color;
-    protected final String BASIC_PRINT_INFO = "Figure: %s, area: %.1f sq. units, color: %s";
 
     public Figure(String color) {
         this.color = color;
     }
 
-    public Figure() {}
-
     public abstract double getArea();
-    public abstract void draw();
 }

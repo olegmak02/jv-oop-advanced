@@ -10,7 +10,10 @@ public class Circle extends Figure {
 
     @Override
     public void draw() {
-        StringBuilder info = new StringBuilder(String.format(BASIC_PRINT_INFO, "circle", getArea(), color));
+        StringBuilder info = new StringBuilder(
+                String.format(BASIC_PRINT_INFO, "circle", getArea(), color)
+        );
+
         info.append(", radius: ").append(String.format("%.1f", radius)).append(" units");
         System.out.println(info.toString());
     }

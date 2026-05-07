@@ -12,7 +12,10 @@ public class RightTriangle extends Figure {
 
     @Override
     public void draw() {
-        StringBuilder info = new StringBuilder(String.format(BASIC_PRINT_INFO, "right triangle", getArea(), color));
+        StringBuilder info = new StringBuilder(
+                String.format(BASIC_PRINT_INFO, "right triangle", getArea(), color)
+        );
+
         info.append(", firstBase: ").append(String.format("%.1f", firstLeg)).append(" units");
         info.append(", secondBase: ").append(String.format("%.1f", secondLeg)).append(" units");
         System.out.println(info.toString());
